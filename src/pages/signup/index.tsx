@@ -1,11 +1,13 @@
 import { Layout } from "../../components";
+import { SignUpForm } from "../../components/forms";
 
-const SignUp = () => {
+
+const SignUpPage = () => {
   return (
     <Layout>
-      <h1>Registro</h1>
+        <SignUpForm />
     </Layout>
   );
 };
 
-export { SignUp };
+export { SignUpPage } 
