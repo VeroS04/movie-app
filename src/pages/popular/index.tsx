@@ -1,11 +1,11 @@
 import { Layout } from "../../components";
 
-const Top = () => {
+const Popular = () => {
   return (
     <Layout>
-      <h1>Top</h1>
+      <h1>Popular</h1>
     </Layout>
   );
 };
 
-export { Top };
+export { Popular };
