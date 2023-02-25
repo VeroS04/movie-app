@@ -10,3 +10,9 @@ export type User = {
 
 export type SignUpForm = Omit<User, "id" | "birthdate"> & { birthdate: Date };
 export type SignUpPayload = SignUpForm;
+
+
+export type LoginForm = {
+  email: string,
+  pass: string
+}
