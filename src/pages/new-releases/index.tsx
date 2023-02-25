@@ -1,6 +1,7 @@
 import { Layout } from "../../components";
+import { withAuth } from "../../hoc";
 
-const NewReleases = () => {
+const NewReleasesPage = () => {
   return (
     <Layout>
       <h1>Estrenos</h1>
@@ -8,4 +9,4 @@ const NewReleases = () => {
   );
 };
 
-export { NewReleases };
+export const NewReleases = withAuth(NewReleasesPage);

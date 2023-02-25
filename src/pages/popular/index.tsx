@@ -1,12 +1,12 @@
 import { Layout } from "../../components";
 import { withAuth } from "../../hoc";
 
-const SearchPage = () => {
+const PopularPage= () => {
   return (
     <Layout>
-      <h1>Busqueda</h1>
+      <h1>Popular</h1>
     </Layout>
   );
 };
 
-export const Search = withAuth(SearchPage);
+export const Popular = withAuth(PopularPage)
