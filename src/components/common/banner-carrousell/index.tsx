@@ -5,18 +5,18 @@ import './style.scss';
 import { img_url } from "../../../constants";
 
 
-const BannerCarousel: FC<Movie> = ({items}) => {
+const BannerCarousel: FC<Movie> = ({movies}) => {
   return (
     <Carousel className="mb-5" fade>
-      {items?.map((items: any) => (
-        <Carousel.Item key={items.id}>
+      {movies?.map((movies: any) => (
+        <Carousel.Item key={movies.id}>
           <img
             className="d-block w-100 card-img-top"
-            src={`${ img_url + items.backdrop_path }`}
+            src={`${ img_url + movies.backdrop_path }`}
             alt="First slide"/>
             <Carousel.Caption>
-              <h3>{items.title}</h3>
-              <p>{items.overview}</p>
+              <h3>{movies.title}</h3>
+              <p>{movies.overview}</p>
             </Carousel.Caption>
         </Carousel.Item>
       ))}

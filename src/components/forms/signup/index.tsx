@@ -1,6 +1,6 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { servicesUser } from "../../../services/users";
+import { servicesUser } from "../../../services/users/users";
 import { SignUpForm } from "../../../types";
 import "./style.scss";
 

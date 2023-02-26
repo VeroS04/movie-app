@@ -1,5 +1,6 @@
 
-import { FC, ReactNode } from "react"
+import { FC, ReactNode } from "react";
+import "./style.scss";
 
 type Props = {
     children: ReactNode
@@ -8,7 +9,7 @@ type Props = {
 const Main: FC<Props> = ({ children }) => {
 
     return (
-        <main className="main flex-grow-1">
+        <main className="main main-color flex-grow-1">
             { children }
         </main>
     )

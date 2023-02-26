@@ -22,6 +22,8 @@ const NavBar = () => {
               Buscador
             </NavLink>
           </Nav>
+        </NavbarBTS.Collapse>
+        <NavbarBTS.Collapse id="basic-navbar-nav">
           <Nav className="btn-forms">
             <NavLink className="nav-link" to="/login">
               Login
