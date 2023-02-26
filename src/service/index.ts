@@ -1,1 +1,0 @@
-export { getBanner } from './movies'
