@@ -1,10 +1,11 @@
 import { endpoints } from "../../constants";
-import { apiMovies } from "../../util/axios";
+import { apiMovies } from "../../utils/axios";
 
 
-const getBanner = async () => {
+const getUpcoming = async () => {
   const response = await apiMovies.get(endpoints.upcoming_movie);
   return response.data.results;
 };
 
-export { getBanner };
+
+export const movieServices = { getUpcoming }
