@@ -16,3 +16,16 @@ export type LoginForm = {
   email: string,
   pass: string
 }
+
+export type Movie = {
+  title : string
+  id: number
+  overview: string
+  backdrop_path: string | null
+  poster_path: string
+}
+
+
+export type Search = {
+  title : string
+}

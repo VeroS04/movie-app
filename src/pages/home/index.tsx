@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 import { Layout } from "../../components";
 import { BannerCarousel } from "../../components/common";
-import { getBanner } from "../../service";
 import { withAuth } from "../../hoc";
+import { movieServices } from "../../services/movies";
 
- const [movies, setMovies] = useState([]);
-
- useEffect(() => {
-     getBanner().then(response => setMovies(response.splice(0, 5)))
-  }, []);
 
 const HomePage = () => {
 
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+     movieServices.getUpcoming().then(response => setMovies(response.splice(0, 5)))
+   }, []);
+ 
+
   return (
     <Layout>
-      <BannerCarousel items={movies} />
+      <BannerCarousel movies={movies} />
     </Layout>
   );
 };
