@@ -1,3 +1,3 @@
 export type Movie = {
-    items: [] | any
+    movies: [] | any
   }

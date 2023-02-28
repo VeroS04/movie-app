@@ -5,7 +5,7 @@ import { useMe } from "../../hooks";
 const publicRoutes = ["/login", "/signup"]
 
 const withAuth = (Component: FC): FC => {
-    
+
     const Authenticated = () => {
 
     const { me } = useMe();
@@ -14,7 +14,6 @@ const withAuth = (Component: FC): FC => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log(me, location.pathname);
 
         if(me && publicRoutes.includes(location.pathname)){
             navigate("/")

@@ -1,18 +1,15 @@
-import { useEffect } from 'react'
 import { Button, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useMe } from "../../../hooks";
 import { LoginForm } from "../../../types";
 
-
 const Login = () => {
+  const { register, handleSubmit } = useForm<LoginForm>();
+  const { login } = useMe();
 
-    const { register, handleSubmit } = useForm<LoginForm>();
-    const { login } = useMe()
-
-    const onSubmit = (data: LoginForm) => {
-        login(data)
-    }
+  const onSubmit = (data: LoginForm) => {
+    login(data);
+  };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)} className="container-signup">
@@ -41,5 +38,4 @@ const Login = () => {
   );
 };
 
-
-export { Login }
+export { Login };
