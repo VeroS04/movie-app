@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react'
 import { AuthContext } from '../../contexts/auth';
 import { tokenGenerator } from "../../helpers/tokenGenerator";
-import { servicesUser } from "../../services/users/users";
+import { servicesUser } from "../../services/users";
 import { LoginForm, User } from "../../types"
 
 const useMe = () => {

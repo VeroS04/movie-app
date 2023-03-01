@@ -1,8 +1,12 @@
 import { FC } from "react";
-import { MoviePopular } from "./types";
 import "./style.scss";
 import { img_url } from "../../../constants";
 import { useNavigate } from "react-router-dom";
+
+export type MoviePopular = {
+  moviesPopular: MoviePopular[]
+  text?: string
+}
 
 const PopularesPage: FC<MoviePopular> = ({ moviesPopular, text }) => {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 
 import { Layout } from "../../components";
 import { BannerCarousel, PopularesList } from "../../components/common";
-import { movieServices } from "../../services/movies/movies";
+import { movieServices } from "../../services/movies";
 import { withAuth } from "../../hoc";
 import { useEffect, useState } from "react";
 
