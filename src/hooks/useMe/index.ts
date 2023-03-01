@@ -1,16 +1,12 @@
 import { useEffect, useContext } from 'react'
 import { AuthContext } from '../../contexts/auth';
 import { tokenGenerator } from "../../helpers/tokenGenerator";
-import { servicesUser } from "../../services/users";
+import { servicesUser } from "../../services/users/users";
 import { LoginForm, User } from "../../types"
 
 const useMe = () => {
 
     const { me, setMe } = useContext(AuthContext)
-
-    useEffect(() => {
-        loginWithToken();
-    }, [])
 
     const login = async ({ email, pass }: LoginForm) => {
 
@@ -24,7 +20,7 @@ const useMe = () => {
             localStorage.setItem('token', token)
 
             setMe({ id, name, lastname, email })
-            
+
         }else {
             console.log('login incorrecto');   
         }

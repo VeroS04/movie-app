@@ -1,10 +1,20 @@
 import { Layout } from "../../components";
 import { withAuth } from "../../hoc";
+import { useState, useEffect } from "react";
+import { movieServices } from "../../services/movies/movies";
+import { PopularesPage } from '../../components/common/populares-page'
 
 const PopularPage= () => {
+
+  const [popular, setPopular] = useState([]);
+
+  useEffect(() => {
+    movieServices.getPopular().then(response => setPopular(response))
+ }, []);
+
   return (
     <Layout>
-      <h1>Popular</h1>
+      <PopularesPage moviesPopular={popular} text={"Popular Movies"} />
     </Layout>
   );
 };
