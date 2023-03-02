@@ -1,0 +1,16 @@
+.cards-estreno {
+    
+    display: flex;
+    width: 100%;
+
+    .card-block {
+      height: 300px;
+      border: 0.2px solid #ac2e01;
+      margin: 1em;
+      &:hover {
+        transform: scale(1.1);
+        transition-duration: 0.8s;
+        filter: grayscale(80%);
+      }
+    }
+  }

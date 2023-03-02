@@ -12,4 +12,9 @@ const getPopular = async () => {
   return response.data.results;
 };
 
-export const movieServices = { getBanner, getPopular }
+const getDetails = async (id: string) => {
+  const response = await apiMovies.get(`movie/${id}`);
+  return response.data;
+};
+
+export const movieServices = { getBanner, getPopular, getDetails }
