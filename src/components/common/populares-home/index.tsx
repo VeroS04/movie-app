@@ -1,9 +1,13 @@
 import { FC } from "react";
-import { MoviePoster } from "./types";
 import "./style.scss";
 import { img_url } from "../../../constants";
 import { useNavigate } from "react-router-dom";
+import { Movie } from "../../../types";
 
+type MoviePoster = {
+  movies: Movie[]
+  text?: string
+}
 const PopularesList: FC<MoviePoster> = ({ movies, text }) => {
   const navigate = useNavigate();
 
@@ -24,5 +28,4 @@ const PopularesList: FC<MoviePoster> = ({ movies, text }) => {
     </div>
   );
 };
-
 export { PopularesList };
