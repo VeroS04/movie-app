@@ -13,9 +13,9 @@ export type SignUpPayload = SignUpForm;
 
 
 export type LoginForm = {
-  email: string,
-  pass: string
-}
+  email: string;
+  pass: string;
+};
 
 export type Movie = {
   title : string
@@ -24,7 +24,6 @@ export type Movie = {
   backdrop_path: string | null
   poster_path: string
 }
-
 
 export type Search = {
   title : string

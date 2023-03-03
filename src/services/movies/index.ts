@@ -2,6 +2,16 @@ import { endpoints } from "../../constants";
 import { apiMovies } from "../../utils/axios";
 
 
+const getBanner = async () => {
+  const response = await apiMovies.get(endpoints.upcoming_movie);
+  return response.data.results;
+};
+
+const getPopular = async () => {
+  const response = await apiMovies.get(endpoints.popular_movie);
+  return response.data.results;
+};
+
 const getUpcoming = async () => {
   const response = await apiMovies.get(endpoints.upcoming_movie);
   return response.data.results;
@@ -18,4 +28,4 @@ const searchMovie = async ( title: string | null ) => {
   return response.data ;
 };
 
-export const movieServices = { getUpcoming, searchMovie }
+export const movieServices = { getUpcoming, searchMovie, getBanner, getPopular }
