@@ -1,17 +1,21 @@
 import { FC } from "react";
-import { MoviePopular } from "./types";
 import "./style.scss";
 import { img_url } from "../../../constants";
 import { useNavigate } from "react-router-dom";
 
-const PopularesPage: FC<MoviePopular> = ({ moviesPopular, text }) => {
+export type MoviePopular = {
+  movies: [] | any
+  text?: string
+}
+
+const PopularesPage: FC<MoviePopular> = ({ movies, text }) => {
   const navigate = useNavigate();
 
   return (
     <div className="list-page">
       <h2 className="title">{text}</h2>
       <div className="pb-4 cards-page">
-        {moviesPopular?.map((moviePop: any) => (
+        {movies?.map((moviePop: any) => (
           <img
             className="card-page"
             key={moviePop.id}

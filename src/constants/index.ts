@@ -4,5 +4,5 @@ export const endpoints = {
   upcoming_movie: "/movie/upcoming",
   popular_movie: "/movie/popular",
   latest_movie: "/movie/latest",
-  search_movie: "/search/movie"
+  top_movie: "/movie/top_rated"
 };

@@ -5,7 +5,6 @@ import { movieServices } from "../../services/movies";
 import { PopularesPage } from '../../components/common/populares-page'
 
 const PopularPage= () => {
-
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {
@@ -14,7 +13,7 @@ const PopularPage= () => {
 
   return (
     <Layout>
-      <PopularesPage moviesPopular={popular} text={"Popular Movies"} />
+      <PopularesPage movies={popular} text={"Popular Movies"} />
     </Layout>
   );
 };
