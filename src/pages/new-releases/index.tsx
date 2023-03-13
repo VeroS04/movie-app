@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Layout } from "../../components";
-import { UpcomingPage } from "../../components/common/upcoming-page";
+import { PageMovie } from "../../components/common";
 import { withAuth } from "../../hoc";
 import { movieServices } from "../../services/movies";
 
@@ -14,7 +14,7 @@ const NewReleasesPage = () => {
 
   return (
     <Layout>
-      <UpcomingPage movies={movies} text={"Upcoming Movies"} />
+      <PageMovie movies={movies} text={"Upcoming Movies"} />
     </Layout>
   );
 };

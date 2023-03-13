@@ -1,19 +1,23 @@
 import { FC } from "react";
-import { Movies } from "./types";
-import "./style.scss";
 import { img_url } from "../../../constants";
 import { useNavigate } from "react-router-dom";
+import "./style.scss";
 
-const UpcomingPage: FC<Movies> = ({ movies, text }) => {
+export type Movies = {
+  movies: Movies[]
+  text?: string
+}
+
+const GridMovies: FC<Movies> = ({ movies, text }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="list-page">
+    <div className="list">
       <h2 className="title">{text}</h2>
-      <div className="pb-4 cards-page">
+      <div className="pb-4 cards">
         {movies?.map((movie: any) => (
           <img
-            className="card-page"
+            className="card-block"
             key={movie.id}
             onClick={() => navigate(`/movie/${movie.id}`)}
             src={`${img_url + movie.poster_path}`}
@@ -24,5 +28,4 @@ const UpcomingPage: FC<Movies> = ({ movies, text }) => {
     </div>
   );
 };
-
-export { UpcomingPage };
+export { GridMovies };
