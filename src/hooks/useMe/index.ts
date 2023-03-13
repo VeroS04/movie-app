@@ -8,10 +8,6 @@ const useMe = () => {
 
     const { me, setMe } = useContext(AuthContext)
 
-    useEffect(() => {
-        loginWithToken();
-    }, [])
-
     const login = async ({ email, pass }: LoginForm) => {
 
         const { id, name, lastname, password } = await servicesUser.getBy('email', email) as User;
@@ -24,7 +20,7 @@ const useMe = () => {
             localStorage.setItem('token', token)
 
             setMe({ id, name, lastname, email })
-            
+
         }else {
             console.log('login incorrecto');   
         }

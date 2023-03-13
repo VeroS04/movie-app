@@ -3,7 +3,7 @@ import { User } from "../../types";
   
   type Context = {
     me?: Partial<User>;
-    setMe: (Dispatch<SetStateAction<Partial<User> | undefined>>);
+    setMe: Dispatch<SetStateAction<Partial<User> | undefined>>;
   };
   
   const AuthContext = createContext<Context>({
