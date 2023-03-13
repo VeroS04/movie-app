@@ -2,7 +2,11 @@ import { FC } from "react";
 import "./style.scss";
 import { img_url } from "../../../constants";
 import { useNavigate } from "react-router-dom";
-import { MovieTop } from "./type";
+
+export type MovieTop = {
+  movies: [] | any
+  text?: string
+}
 
 const TopList: FC<MovieTop> = ({ movies, text }) => {
   const navigate = useNavigate();

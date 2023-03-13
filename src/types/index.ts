@@ -24,3 +24,7 @@ export type Movie = {
   backdrop_path: string | null
   poster_path: string
 }
+
+export type Search = {
+  title : string
+}

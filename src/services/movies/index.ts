@@ -12,4 +12,21 @@ const getTop = async () => {
   return response.data.results;
 };
 
-export const movieServices = { getBanner, getTop }
+const getPopular = async () => {
+  const response = await apiMovies.get(endpoints.popular_movie);
+  return response.data.results;
+};
+
+const searchMovie = async ( title: string | null ) => {
+  const response = await apiMovies.get(
+    "search/movie",
+    {
+      params: {
+        query:title,
+      },
+    }
+  )
+  return response.data ;
+};
+
+export const movieServices = { getBanner, getPopular, getTop, searchMovie }
