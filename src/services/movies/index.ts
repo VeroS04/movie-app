@@ -12,4 +12,9 @@ const getPopular = async () => {
   return response.data.results;
 };
 
-export const movieServices = { getBanner, getPopular }
+const getTop = async () => {
+  const response = await apiMovies.get(endpoints.top_movie);
+  return response.data.results;
+};
+
+export const movieServices = { getBanner, getPopular, getTop }
