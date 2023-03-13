@@ -1,8 +1,8 @@
 
 import { Layout } from "../../components";
-import { BannerCarousel, PopularesList } from "../../components/common";
-import { movieServices } from "../../services/movies/movies";
+import { BannerCarousel, TopList } from "../../components/common";
 import { withAuth } from "../../hoc";
+import { movieServices } from "../../services/movies";
 import { useEffect, useState } from "react";
 
 const HomePage = () => {
@@ -15,10 +15,18 @@ const HomePage = () => {
     movieServices.getPopular().then(response => setPopular(response))
  }, []);
 
+  const [movies, setMovies] = useState([]);
+  const [top, setTop] = useState([]);
+
+  useEffect(() => {
+    movieServices.getBanner().then(response => setMovies(response.splice(0, 5)))
+    movieServices.getTop().then(response => setTop(response))
+ }, []);
+   
   return (
     <Layout>
-      <BannerCarousel movies={movies} />
-      <PopularesList movies={popular} text={"Popular Movies"}/>
+      <BannerCarousel items={movies} />
+      <TopList movies={top} text={"Top Movies"}/>
     </Layout>
   );
 };
