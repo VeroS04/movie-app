@@ -1,9 +1,11 @@
 import { FC } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import { Movie } from "./types";
 import './style.scss';
 import { img_url } from "../../../constants";
 
+export type Movie = {
+  movies: Movie[]
+}
 
 const BannerCarousel: FC<Movie> = ({movies}) => {
   return (

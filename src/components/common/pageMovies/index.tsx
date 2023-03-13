@@ -1,26 +1,26 @@
 import { FC } from "react";
-import "./style.scss";
 import { img_url } from "../../../constants";
 import { useNavigate } from "react-router-dom";
+import "./style.scss";
 
-export type MoviePopular = {
-  moviesPopular: MoviePopular[]
-  text?: string
+export type Movies = {
+    movies: Movies[] 
+    text?: string
 }
 
-const PopularesPage: FC<MoviePopular> = ({ moviesPopular, text }) => {
+const PageMovie: FC<Movies> = ({ movies, text }) => {
   const navigate = useNavigate();
 
   return (
     <div className="list-page">
       <h2 className="title">{text}</h2>
       <div className="pb-4 cards-page">
-        {moviesPopular?.map((moviePop: any) => (
+        {movies?.map((movie: any) => (
           <img
             className="card-page"
-            key={moviePop.id}
-            onClick={() => navigate(`/movie/${moviePop.id}`)}
-            src={`${img_url + moviePop.poster_path}`}
+            key={movie.id}
+            onClick={() => navigate(`/movie/${movie.id}`)}
+            src={`${img_url + movie.poster_path}`}
             alt="First slide"
           />
         ))}
@@ -29,4 +29,4 @@ const PopularesPage: FC<MoviePopular> = ({ moviesPopular, text }) => {
   );
 };
 
-export { PopularesPage };
+export { PageMovie };

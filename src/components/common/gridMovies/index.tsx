@@ -1,14 +1,14 @@
 import { FC } from "react";
-import "./style.scss";
 import { img_url } from "../../../constants";
 import { useNavigate } from "react-router-dom";
+import "./style.scss";
 
-export type MoviePoster = {
-  movies: MoviePoster[]
+export type Movies = {
+  movies: Movies[]
   text?: string
 }
 
-const PopularesList: FC<MoviePoster> = ({ movies, text }) => {
+const GridMovies: FC<Movies> = ({ movies, text }) => {
   const navigate = useNavigate();
 
   return (
@@ -28,5 +28,4 @@ const PopularesList: FC<MoviePoster> = ({ movies, text }) => {
     </div>
   );
 };
-
-export { PopularesList };
+export { GridMovies };

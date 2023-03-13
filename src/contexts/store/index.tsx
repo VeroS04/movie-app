@@ -1,6 +1,6 @@
 
 import { createContext, FC, ReactNode, useState } from "react";
-import { servicesUser } from "../../services/users/users";
+import { servicesUser } from "../../services/users";
 import { User } from "../../types";
 
 type ContextType = {
