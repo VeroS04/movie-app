@@ -7,9 +7,14 @@ const getBanner = async () => {
   return response.data.results;
 };
 
+const getPopular = async () => {
+  const response = await apiMovies.get(endpoints.popular_movie);
+  return response.data.results;
+};
+
 const getTop = async () => {
   const response = await apiMovies.get(endpoints.top_movie);
   return response.data.results;
 };
 
-export const movieServices = { getBanner, getTop }
+export const movieServices = { getBanner, getPopular, getTop }
