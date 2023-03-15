@@ -3,12 +3,12 @@ import { img_url } from "../../../constants";
 import { useNavigate } from "react-router-dom";
 import "./style.scss";
 
-export type Movies = {
-    movies: Movies[] 
+type Props = {
+    movies: Props[] 
     text?: string
 }
 
-const PageMovie: FC<Movies> = ({ movies, text }) => {
+const PageMovie: FC<Props> = ({ movies, text }) => {
   const navigate = useNavigate();
 
   return (

@@ -2,7 +2,7 @@ import { Layout } from "../../components";
 import { withAuth } from "../../hoc";
 import { useState, useEffect } from "react";
 import { movieServices } from "../../services/movies";
-import { PopularesPage } from '../../components/common/populares-page'
+import { PageMovie } from "../../components/common";
 
 const PopularPage= () => {
 
@@ -14,7 +14,7 @@ const PopularPage= () => {
 
   return (
     <Layout>
-      <PopularesPage moviesPopular={popular} text={"Popular Movies"} />
+      <PageMovie movies={popular} text={"Popular Movies"} />
     </Layout>
   );
 };

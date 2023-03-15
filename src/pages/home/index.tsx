@@ -1,6 +1,6 @@
 
 import { Layout } from "../../components";
-import { BannerCarousel, PopularesList, TopList } from "../../components/common";
+import { BannerCarousel, GridMovies } from "../../components/common";
 import { withAuth } from "../../hoc";
 import { movieServices } from "../../services/movies";
 import { useEffect, useState } from "react";
@@ -20,8 +20,8 @@ const HomePage = () => {
   return (
     <Layout>
       <BannerCarousel movies={movies} />
-      <PopularesList movies={popular} text={"Populares"} />
-      <TopList movies={top} text={"Top Movies"}/>
+      <GridMovies movies={popular} text={"Populares"} />
+      <GridMovies movies={top} text={"Top Movies"}/>
     </Layout>
   );
 };
