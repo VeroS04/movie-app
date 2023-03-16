@@ -2,7 +2,7 @@ import { Layout } from "../../components";
 import { withAuth } from "../../hoc";
 import { useState, useEffect } from "react";
 import { movieServices } from "../../services/movies";
-import { PageMovie } from "../../components/common";
+import { GridMovies } from "../../components/common";
 
 const PopularPage= () => {
 
@@ -14,7 +14,7 @@ const PopularPage= () => {
 
   return (
     <Layout>
-      <PageMovie movies={popular} text={"Popular Movies"} />
+      <GridMovies movies={popular} text={"Popular Movies"} type={"slides"} container={"container-slides"} card={"card-slides-img"} />
     </Layout>
   );
 };

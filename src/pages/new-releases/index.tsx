@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Layout } from "../../components";
-import { PageMovie } from "../../components/common";
+import { GridMovies } from "../../components/common";
 import { withAuth } from "../../hoc";
 import { movieServices } from "../../services/movies";
 
@@ -14,7 +14,7 @@ const NewReleasesPage = () => {
 
   return (
     <Layout>
-      <PageMovie movies={movies} text={"Upcoming Movies"} />
+      <GridMovies movies={movies} text={"Upcoming Movies"} type={"slides"} container={"container-slides"} card={"card-slides-img"} />
     </Layout>
   );
 };

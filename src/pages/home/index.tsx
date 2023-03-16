@@ -12,7 +12,7 @@ const HomePage = () => {
   const [top, setTop] = useState([]);
 
   useEffect(() => {
-    movieServices.getBanner().then(response => setMovies(response.splice(0, 5)))
+    movieServices.getUpcoming().then(response => setMovies(response.splice(0, 5)))
     movieServices.getPopular().then(response => setPopular(response))
     movieServices.getTop().then(response => setTop(response))
  }, []);
@@ -20,8 +20,8 @@ const HomePage = () => {
   return (
     <Layout>
       <BannerCarousel movies={movies} />
-      <GridMovies movies={popular} text={"Populares"} />
-      <GridMovies movies={top} text={"Top Movies"}/>
+      <GridMovies movies={popular} text={"Populares"} type={"grid"} container={"container-grid"} card={"card-grid-img"} />
+      <GridMovies movies={top} text={"Top Movies"} type={"grid"} container={"container-grid"} card={"card-grid-img"} />
     </Layout>
   );
 };
