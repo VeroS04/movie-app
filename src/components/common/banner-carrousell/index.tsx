@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import './style.scss';
-import { img_url } from "../../../constants";
+import { IMG_URL } from "../../../constants";
 
 export type Movie = {
   movies: Movie[]
@@ -14,7 +14,7 @@ const BannerCarousel: FC<Movie> = ({movies}) => {
         <Carousel.Item key={movies.id}>
           <img
             className="d-block w-100 card-img-top"
-            src={`${ img_url + movies.backdrop_path }`}
+            src={`${ IMG_URL + movies.backdrop_path }`}
             alt="First slide"/>
             <Carousel.Caption>
               <h3>{movies.title}</h3>

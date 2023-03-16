@@ -1,26 +1,27 @@
 import { FC } from "react";
-import { img_url } from "../../../constants";
 import { useNavigate } from "react-router-dom";
-import "./style.scss";
+import { IMG_URL } from "../../../constants";
+import "./styles.scss";
 
 type Props = {
-  movies: Props[]
-  text?: string
-}
+  movies: Props[];
+  text?: string;
+  type: "grid" | "slides";
+};
 
-const GridMovies: FC<Props> = ({ movies, text }) => {
+const DisplayMovies: FC<Props> = ({ movies, text, type }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="list">
+    <div className={type}>
       <h2 className="title">{text}</h2>
       <div className="pb-4 cards">
         {movies?.map((movie: any) => (
           <img
-            className="card-block"
+            className="card"
             key={movie.id}
             onClick={() => navigate(`/movie/${movie.id}`)}
-            src={`${img_url + movie.poster_path}`}
+            src={`${IMG_URL + movie.poster_path}`}
             alt="First slide"
           />
         ))}
@@ -28,4 +29,5 @@ const GridMovies: FC<Props> = ({ movies, text }) => {
     </div>
   );
 };
-export { GridMovies };
+
+export { DisplayMovies };

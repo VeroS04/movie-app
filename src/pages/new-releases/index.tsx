@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
 import { Layout } from "../../components";
-import { PageMovie } from "../../components/common";
+import { DisplayMovies } from "../../components/common";
 import { withAuth } from "../../hoc";
 import { movieServices } from "../../services/movies";
 
 const NewReleasesPage = () => {
-
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    movieServices.getUpcoming().then(response => setMovies(response))
- }, []);
+    movieServices.getUpcoming().then((response) => setMovies(response));
+  }, []);
 
   return (
     <Layout>
-      <PageMovie movies={movies} text={"Upcoming Movies"} />
+      <DisplayMovies movies={movies} text={"Upcoming Movies"} type="grid" />
     </Layout>
   );
 };

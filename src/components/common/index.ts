@@ -1,4 +1,2 @@
-export { BannerCarousel } from './banner-carrousell';
-export { GridMovies } from './gridMovies';
-export { PageMovie } from './pageMovies';
-
+export { BannerCarousel } from "./banner-carrousell";
+export { DisplayMovies } from "./display-movies";
