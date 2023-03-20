@@ -1,7 +1,8 @@
-export const img_url = "http://image.tmdb.org/t/p/original";
+export const IMG_URL = "http://image.tmdb.org/t/p/original";
 
 export const endpoints = {
-  upcoming_movie: "/movie/upcoming",
-  latest_movie: "/movie/latest",
-  popular_movie: "/movie/popular"
+  UPCOMING_MOVIE: "/movie/upcoming",
+  LATEST_MOVIE: "/movie/latest",
+  TOP_MOVIE: "/movie/top_rated",
+  POPULAR_MOVIE: "/movie/popular"
 };

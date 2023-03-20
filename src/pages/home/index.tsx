@@ -1,23 +1,29 @@
 
 import { Layout } from "../../components";
-import { BannerCarousel, PopularesList } from "../../components/common";
-import { movieServices } from "../../services/movies";
+import { BannerCarousel, GridMovies } from "../../components/common";
 import { withAuth } from "../../hoc";
+import { movieServices } from "../../services/movies";
 import { useEffect, useState } from "react";
-import { Movie } from "../../types";
 
 const HomePage = () => {
+
   const [movies, setMovies] = useState([]);
   const [popular, setPopular] = useState([]);
+  const [top, setTop] = useState([]);
+
   useEffect(() => {
-    movieServices.getBanner().then(response => setMovies(response.splice(0, 5)))
+    movieServices.getUpcoming().then(response => setMovies(response.splice(0, 5)))
     movieServices.getPopular().then(response => setPopular(response))
+    movieServices.getTop().then(response => setTop(response))
  }, []);
+   
   return (
     <Layout>
       <BannerCarousel movies={movies} />
-      <PopularesList movies={popular} text={"Popular Movies"}/>
+      <GridMovies movies={popular} text={"Populares"} type={"grid"} container={"container-grid"} card={"card-grid-img"} />
+      <GridMovies movies={top} text={"Top Movies"} type={"grid"} container={"container-grid"} card={"card-grid-img"} />
     </Layout>
   );
 };
+
 export const Home = withAuth(HomePage);

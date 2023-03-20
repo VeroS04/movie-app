@@ -1,10 +1,21 @@
+import { useEffect, useState } from "react";
 import { Layout } from "../../components";
+import { GridMovies } from "../../components/common";
 import { withAuth } from "../../hoc";
+import { movieServices } from "../../services/movies";
+import { Movie } from "../../types";
 
 const NewReleasesPage = () => {
+
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    movieServices.getUpcoming().then(response => setMovies(response))
+ }, []);
+
   return (
     <Layout>
-      <h1>Estrenos</h1>
+      <GridMovies movies={movies} text={"Upcoming Movies"} type={"slides"} container={"container-slides"} card={"card-slides-img"} />
     </Layout>
   );
 };
