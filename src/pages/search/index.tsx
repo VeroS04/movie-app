@@ -5,10 +5,9 @@ import { useSearchParams } from "react-router-dom";
 import { movieServices } from "../../services/movies";
 import { Movie, Search } from '../../types'
 import { withAuth } from "../../hoc";
-import { Col, Container, Row } from "react-bootstrap";
-import { CardsMovie } from "../../components/common/movie-cards";
-import { img_url } from "../../constants";
+import { IMG_URL } from "../../constants";
 import { useParam } from "../../hooks/useParams";
+import { CardsMovie } from "../../components/common/movieCards";
 
 
 const SearchPage = () => {
@@ -37,7 +36,7 @@ const SearchPage = () => {
             <div key={movies.id}  className="col-3">
               <CardsMovie
                 title={movies.title}
-                img={`${img_url + movies.poster_path}`}
+                img={`${IMG_URL + movies.poster_path}`}
                 id={movies.id}
               />
             </div>

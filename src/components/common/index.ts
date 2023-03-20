@@ -1,6 +1,4 @@
 export { BannerCarousel } from './banner-carrousell';
-export { PopularesList } from './populares-home';
-export { PopularesPage } from './populares-page';
-export { CardsMovie } from './movie-cards';
-export { TopList } from './top-home';
+export { GridMovies } from './gridMovies';
+export { CardsMovie } from './movieCards'
 

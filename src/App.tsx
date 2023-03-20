@@ -1,8 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useMe } from "./hooks";
+import { useEffect } from "react";
 import { Home, Login, NewReleases, Popular, SearchP, SignUp } from "./pages";
 
 
 function App() {
+
+  const { loginWithToken } = useMe();
+
+  useEffect(() => {
+    loginWithToken();
+  }, []);
+
+
   return (
     <BrowserRouter>
       <Routes>

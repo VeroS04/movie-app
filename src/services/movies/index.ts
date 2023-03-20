@@ -1,32 +1,30 @@
 import { endpoints } from "../../constants";
 import { apiMovies } from "../../utils/axios";
 
+const getPopular = async () => {
+  const response = await apiMovies.get(endpoints.POPULAR_MOVIE);
+  return response.data.results;
+};
 
-const getBanner = async () => {
-  const response = await apiMovies.get(endpoints.upcoming_movie);
+const getUpcoming = async () => {
+  const response = await apiMovies.get(endpoints.UPCOMING_MOVIE);
   return response.data.results;
 };
 
 const getTop = async () => {
-  const response = await apiMovies.get(endpoints.top_movie);
-  return response.data.results;
-};
-
-const getPopular = async () => {
-  const response = await apiMovies.get(endpoints.popular_movie);
+  const response = await apiMovies.get(endpoints.TOP_MOVIE);
   return response.data.results;
 };
 
 const searchMovie = async ( title: string | null ) => {
-  const response = await apiMovies.get(
-    "search/movie",
+  const response = await apiMovies.get(endpoints.SEARCH_MOVIE,
     {
       params: {
         query:title,
       },
     }
-  )
+    )
   return response.data ;
 };
 
-export const movieServices = { getBanner, getPopular, getTop, searchMovie }
+export const movieServices = { getPopular, getTop, getUpcoming, searchMovie }

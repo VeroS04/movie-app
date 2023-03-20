@@ -1,20 +1,20 @@
 import { FC } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import './style.scss';
-import { img_url } from "../../../constants";
+import { IMG_URL } from "../../../constants";
 
-type Movie = {
-  movies: Movie[]
+type Props = {
+  movies: Props[]
 }
 
-const BannerCarousel: FC<Movie> = ({movies}) => {
+const BannerCarousel: FC<Props> = ({movies}) => {
   return (
     <Carousel className="mb-5" fade>
       {movies?.map((movie: any) => (
         <Carousel.Item key={movie.id}>
           <img
             className="d-block w-100 card-img-top"
-            src={`${ img_url + movie.backdrop_path }`}
+            src={`${ IMG_URL + movie.backdrop_path }`}
             alt="First slide"/>
             <Carousel.Caption>
               <h3>{movie.title}</h3>
