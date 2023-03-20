@@ -1,6 +1,6 @@
 
 import { Layout } from "../../components";
-import { BannerCarousel, TopList } from "../../components/common";
+import { BannerCarousel, GridMovies } from "../../components/common";
 import { withAuth } from "../../hoc";
 import { movieServices } from "../../services/movies";
 import { useEffect, useState } from "react";
@@ -9,24 +9,19 @@ const HomePage = () => {
 
   const [movies, setMovies] = useState([]);
   const [popular, setPopular] = useState([]);
-
-  useEffect(() => {
-    movieServices.getBanner().then(response => setMovies(response.splice(0, 5)))
-    movieServices.getPopular().then(response => setPopular(response))
- }, []);
-
-  const [movies, setMovies] = useState([]);
   const [top, setTop] = useState([]);
 
   useEffect(() => {
-    movieServices.getBanner().then(response => setMovies(response.splice(0, 5)))
+    movieServices.getUpcoming().then(response => setMovies(response.splice(0, 5)))
+    movieServices.getPopular().then(response => setPopular(response))
     movieServices.getTop().then(response => setTop(response))
  }, []);
    
   return (
     <Layout>
-      <BannerCarousel items={movies} />
-      <TopList movies={top} text={"Top Movies"}/>
+      <BannerCarousel movies={movies} />
+      <GridMovies movies={popular} text={"Populares"} type={"grid"} />
+      <GridMovies movies={top} text={"Top Movies"} type={"grid"} />
     </Layout>
   );
 };
