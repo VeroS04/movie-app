@@ -14,7 +14,7 @@ const NewReleasesPage = () => {
 
   return (
     <Layout>
-      <GridMovies movies={movies} text={"Upcoming Movies"} type={"slides"} container={"container-slides"} card={"card-slides-img"} />
+      <GridMovies movies={movies} text={"Upcoming Movies"} type={"slides"} />
     </Layout>
   );
 };

@@ -1,27 +1,26 @@
 import { FC } from "react";
 import { IMG_URL } from "../../../constants";
 import { useNavigate } from "react-router-dom";
+import { Movie } from "../../../types";
 import "./style.scss";
 
 type Props = {
-  movies: Props[]
+  movies: Movie[]
   text?: string
   type: "grid" | "slides";
-  container: "container-grid" | "container-slides";
-  card: "card-grid-img" | "card-slides-img"
-  }
+}
 
 
-const GridMovies: FC<Props> = ({ movies, text, type, container, card }) => {
+const GridMovies: FC<Props> = ({ movies, text, type }) => {
   const navigate = useNavigate();
 
   return (
     <div className={type}>
       <h2 className="title">{text}</h2>
-      <div className={container}>
+      <div className={`container-${type}`}>
         {movies?.map((movie: any) => (
           <img
-            className={card}
+            className={`card-${type}-img}`}
             key={movie.id}
             onClick={() => navigate(`/movie/${movie.id}`)}
             src={`${IMG_URL + movie.poster_path}`} 
