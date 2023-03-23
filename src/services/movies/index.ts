@@ -16,4 +16,9 @@ const getTop = async () => {
   return response.data.results;
 };
 
-export const movieServices = { getPopular, getTop, getUpcoming }
+const getDetails = async (id: string) => {
+  const response = await apiMovies.get(`movie/${id}`);
+  return response.data;
+};
+
+export const movieServices = { getPopular, getTop, getUpcoming, getDetails }

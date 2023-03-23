@@ -14,7 +14,7 @@ const PopularPage= () => {
 
   return (
     <Layout>
-      <GridMovies movies={popular} text={"Popular Movies"} type={"slides"} />
+      <GridMovies movies={popular} text={"Popular Movies"} type={"slides"} container={"container-slides"} card={"card-slides-img"} />
     </Layout>
   );
 };

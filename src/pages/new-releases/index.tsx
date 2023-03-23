@@ -3,6 +3,7 @@ import { Layout } from "../../components";
 import { GridMovies } from "../../components/common";
 import { withAuth } from "../../hoc";
 import { movieServices } from "../../services/movies";
+import { Movie } from "../../types";
 
 const NewReleasesPage = () => {
 
@@ -14,7 +15,7 @@ const NewReleasesPage = () => {
 
   return (
     <Layout>
-      <GridMovies movies={movies} text={"Upcoming Movies"} type={"slides"} />
+      <GridMovies movies={movies} text={"Upcoming Movies"} type={"slides"} container={"container-slides"} card={"card-slides-img"} />
     </Layout>
   );
 };

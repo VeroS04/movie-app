@@ -20,8 +20,8 @@ const HomePage = () => {
   return (
     <Layout>
       <BannerCarousel movies={movies} />
-      <GridMovies movies={popular} text={"Populares"} type={"grid"} />
-      <GridMovies movies={top} text={"Top Movies"} type={"grid"} />
+      <GridMovies movies={popular} text={"Populares"} type={"grid"} container={"container-grid"} card={"card-grid-img"} />
+      <GridMovies movies={top} text={"Top Movies"} type={"grid"} container={"container-grid"} card={"card-grid-img"} />
     </Layout>
   );
 };

@@ -48,7 +48,7 @@ const useMe = () => {
 
     }
 
-    return { me, login, signup, forgotPassword, logout}
+    return { me, login, signup, forgotPassword, logout, loginWithToken }
 }
 
 export { useMe }
