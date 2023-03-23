@@ -1,8 +1,8 @@
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useMe } from "./hooks";
 import { useEffect } from "react";
-import { Home, Login, NewReleases, Popular, SearchP, SignUp } from "./pages";
-
+import { Details, Home, Login, NewReleases, Popular, Search, SignUp } from "./pages";
 
 function App() {
 
@@ -11,7 +11,6 @@ function App() {
   useEffect(() => {
     loginWithToken();
   }, []);
-
 
   return (
     <BrowserRouter>
@@ -23,6 +22,7 @@ function App() {
           <Route path="new-releases" element={<NewReleases />} />
           <Route path="search" element={<SearchP />} />
           <Route path="popular" element={<Popular />} />
+          <Route path="movies/:id"  element={<Details/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

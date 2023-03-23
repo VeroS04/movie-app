@@ -3,6 +3,7 @@ import { Layout } from "../../components";
 import { GridMovies } from "../../components/common";
 import { withAuth } from "../../hoc";
 import { movieServices } from "../../services/movies";
+import { Movie } from "../../types";
 
 const NewReleasesPage = () => {
 

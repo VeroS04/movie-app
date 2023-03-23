@@ -7,7 +7,7 @@ import { Container } from "react-bootstrap";
 
 type Props = {
   movies: Movie[]
-  text?: string
+  text?: string;
   type: "grid" | "slides";
   container: "container-grid" | "container-slides";
   card: "card-grid-img" | "card-slides-img"
@@ -25,9 +25,9 @@ const GridMovies: FC<Props> = ({ movies, text, type, container, card }) => {
           <img
             className={card}
             key={movie.id}
-            onClick={() => navigate(`/movie/${movie.id}`)}
+            onClick={() => navigate(`/movies/${movie.id}`)}
             src={`${IMG_URL + movie.poster_path}`} 
-            alt="First slide"           
+            id={movie.id}           
           />
         ))}
       </div>
