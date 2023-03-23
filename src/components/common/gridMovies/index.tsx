@@ -3,6 +3,7 @@ import { IMG_URL } from "../../../constants";
 import { useNavigate } from "react-router-dom";
 import { Movie } from "../../../types";
 import "./style.scss";
+import { Container } from "react-bootstrap";
 
 type Props = {
   movies: Movie[]

@@ -5,7 +5,6 @@ import { movieServices } from "../../services/movies";
 import { GridMovies } from "../../components/common";
 
 const PopularPage= () => {
-
   const [popular, setPopular] = useState([]);
 
   useEffect(() => {

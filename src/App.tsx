@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useMe } from "./hooks";
+import { useEffect } from "react";
 import { Details, Home, Login, NewReleases, Popular, Search, SignUp } from "./pages";
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="new-releases" element={<NewReleases />} />
-          <Route path="search" element={<Search />} />
+          <Route path="search" element={<SearchP />} />
           <Route path="popular" element={<Popular />} />
           <Route path="movies/:id"  element={<Details/>}/>
         </Route>

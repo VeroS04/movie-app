@@ -1,4 +1,3 @@
-
 import { Layout } from "../../components";
 import { BannerCarousel, GridMovies } from "../../components/common";
 import { withAuth } from "../../hoc";

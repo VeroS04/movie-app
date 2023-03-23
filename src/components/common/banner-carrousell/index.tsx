@@ -10,15 +10,15 @@ type Props = {
 const BannerCarousel: FC<Props> = ({movies}) => {
   return (
     <Carousel className="mb-5" fade>
-      {movies?.map((movies: any) => (
-        <Carousel.Item key={movies.id}>
+      {movies?.map((movie: any) => (
+        <Carousel.Item key={movie.id}>
           <img
             className="d-block w-100 card-img-top"
-            src={`${ IMG_URL + movies.backdrop_path }`}
+            src={`${ IMG_URL + movie.backdrop_path }`}
             alt="First slide"/>
             <Carousel.Caption>
-              <h3>{movies.title}</h3>
-              <p>{movies.overview}</p>
+              <h3>{movie.title}</h3>
+              <p>{movie.overview}</p>
             </Carousel.Caption>
         </Carousel.Item>
       ))}
