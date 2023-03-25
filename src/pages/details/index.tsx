@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import { Calendar } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
-import { Layout } from "../../components/layout";
+import { Layout } from "../../components";
 import { IMG_URL } from "../../constants";
 import { withAuth } from "../../hoc";
 import { movieServices } from "../../services/movies";

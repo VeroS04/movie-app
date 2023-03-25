@@ -1,54 +1,55 @@
-import { useContext } from 'react'
-import { AuthContext } from '../../contexts/auth';
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/auth";
 import { tokenGenerator } from "../../helpers/tokenGenerator";
 import { servicesUser } from "../../services/users";
-import { LoginForm, User } from "../../types"
+import { LoginForm, User } from "../../types";
 
 const useMe = () => {
+  const { me, setMe } = useContext(AuthContext);
 
-    const { me, setMe } = useContext(AuthContext)
+  const login = async ({ email, pass }: LoginForm) => {
+    const user = await servicesUser.getBy("email", email);
 
-    const login = async ({ email, pass }: LoginForm) => {
+    if (user && user.password === pass) {
+      const { id, name, lastname } = user;
+      const token = tokenGenerator();
+      servicesUser.update({ id, token });
 
-        const { id, name, lastname, password } = await servicesUser.getBy('email', email) as User;
+      localStorage.setItem("token", token);
 
-        if(password === pass) {
-            const token = tokenGenerator();
-
-            servicesUser.update({ id, token })
-
-            localStorage.setItem('token', token)
-
-            setMe({ id, name, lastname, email })
-
-        }else {
-            console.log('login incorrecto');   
-        }
+      setMe({ id, name, lastname, email });
+    } else {
+      servicesUser.update({ id: me?.id, token: null });
+      setMe(undefined);
     }
+  };
 
-    const signup = (user: Omit<User, 'id'>) => {
+  const signup = (user: Omit<User, "id">) => {};
 
+  const forgotPassword = () => {};
+
+  const loginWithToken = async () => {
+    const token = localStorage.getItem("token");
+
+    if (token && !me) {
+      const user = await servicesUser.getBy("token", token);
+      if (user) {
+        setMe({
+          id: user.id,
+          name: user.name,
+          lastname: user.lastname,
+          email: user.email,
+        });
+      }
     }
+  };
 
-    const forgotPassword = () => {
+  const logout = async () => {
+    await servicesUser.update({ id: me?.id, token: null });
+    setMe(undefined);
+  };
 
-    }
+  return { me, login, signup, forgotPassword, logout, loginWithToken };
+};
 
-    const loginWithToken = async () => {
-        const token = localStorage.getItem('token');
-
-        if(token) {
-            const { id, name, lastname, email} = await servicesUser.getBy('token', token) as User
-            setMe({ id, name, lastname, email })
-        }
-        
-    }
-
-    const logout = () => {
-
-    }
-
-    return { me, login, signup, forgotPassword, logout, loginWithToken}
-}
-
-export { useMe }
+export { useMe };

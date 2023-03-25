@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useMe } from "./hooks";
-import { useEffect } from "react";
-import { Details, Home, Login, NewReleases, Popular, Search, SignUp } from "./pages";
+import { Details, Home, Login, NewReleases, Popular, SearchP, SignUp } from "./pages";
 
 function App() {
 

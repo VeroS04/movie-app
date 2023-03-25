@@ -1,13 +1,20 @@
 import { endpoints } from "../../constants";
 import { apiMovies } from "../../utils/axios";
-
+ 
 const getPopular = async () => {
   const response = await apiMovies.get(endpoints.POPULAR_MOVIE);
   return response.data.results;
 };
 
-const getUpcoming = async () => {
-  const response = await apiMovies.get(endpoints.UPCOMING_MOVIE);
+const getUpcoming = async (page?: string) => {
+  const response = await apiMovies.get(
+    endpoints.UPCOMING_MOVIE,
+    {
+      params: {
+        page: page,
+      },
+    }
+    );
   return response.data.results;
 };
 

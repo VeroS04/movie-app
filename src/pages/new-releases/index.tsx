@@ -1,21 +1,44 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Layout } from "../../components";
-import { GridMovies } from "../../components/common";
+import { GridMovies, Pager } from "../../components/common";
 import { withAuth } from "../../hoc";
 import { movieServices } from "../../services/movies";
-import { Movie } from "../../types";
 
 const NewReleasesPage = () => {
-
   const [movies, setMovies] = useState([]);
+  const [totalPage, setTotalPages] = useState(Number);
+  const [params, setParams] = useState({ page: '1' })
+  const [searchParams, setSearchParams] = useSearchParams()
+
 
   useEffect(() => {
-    movieServices.getUpcoming().then(response => setMovies(response))
- }, []);
+      setSearchParams({page: params.page});
+  }, [params]);
+
+  useEffect(() => {
+    const currentPage = searchParams.get("page");
+      movieServices.getUpcoming(currentPage || "1").then(response => {
+          setMovies(response)
+          setTotalPages(response.total_pages)
+      })
+  }, [searchParams])
+
+  const setQuery = (page: string) => {
+      setParams(prevState => ({ ...prevState, page: page }))
+  }
+
 
   return (
     <Layout>
-      <GridMovies movies={movies} text={"Upcoming Movies"} type={"slides"} container={"container-slides"} card={"card-slides-img"} />
+      <GridMovies
+        movies={movies}
+        text={"Upcoming Movies"}
+        type={"slides"}
+        container={"container-slides"}
+        card={"card-slides-img"}
+      />
+      <Pager  onClick={setQuery} totalPages={totalPage} />
     </Layout>
   );
 };

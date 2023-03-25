@@ -9,7 +9,7 @@ type Props = {
 
 const BannerCarousel: FC<Props> = ({movies}) => {
   return (
-    <Carousel className="mb-5" fade>
+    <Carousel className="mb-5 mt-3" fade>
       {movies?.map((movie: any) => (
         <Carousel.Item key={movie.id}>
           <img
