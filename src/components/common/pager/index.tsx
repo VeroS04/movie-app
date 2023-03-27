@@ -1,35 +1,32 @@
-import { FC, useEffect, useState } from "react";
-import Pagination from "react-bootstrap/Pagination";
+import { FC } from 'react';
+import Pagination from 'react-bootstrap/Pagination';
 import './style.scss'
 
 type Props = {
-  totalPages: number
-  onClick: (page: string) => void
-};
+  totalPages: number;
+  currentPage: number;
+  onPageChange: (pageNumber: number) => void;
+}
 
-const Pager: FC<Props> = ({ totalPages, onClick }) => {
+const Pager: FC<Props> = ({ totalPages, currentPage, onPageChange }) => {
+  const pageItems = [];
 
-  const [page, setPage] = useState(1)
-
-const pagerCount = [
-    function first() { setPage(1) },
-    function prev() { setPage(page - 1) },
-    function next() { setPage(page + 1) },
-    function last() { setPage(totalPages) }
-]
-
-useEffect(() => {
-    onClick(page.toString())
-}, [page])
+  for (let i = 1; i <= totalPages; i++) {
+    pageItems.push(
+      <Pagination.Item key={i} active={i === currentPage} onClick={() => onPageChange(i)}>
+        {i}
+      </Pagination.Item>
+    );
+  }
 
   return (
-      <Pagination className="pagination">
-        <Pagination.First disabled={page === 1} onClick={pagerCount[0]} className="btn-page" />
-        <Pagination.Prev disabled={page === 1} onClick={pagerCount[1]} className="btn-page" />
-        <Pagination.Item value={page} className="btn-page" >{page}</Pagination.Item>
-        <Pagination.Next disabled={page === totalPages} onClick={pagerCount[2]} className="btn-page" />
-        <Pagination.Last disabled={page === totalPages} onClick={pagerCount[3]} className="btn-page" />
-      </Pagination>
+    <Pagination className='pagination'>
+      <Pagination.First onClick={() => onPageChange(1)} disabled={currentPage === 1} className="btn-page" />
+      <Pagination.Prev onClick={() => onPageChange(currentPage - 1)} disabled={currentPage === 1} className="btn-page" />
+      {pageItems}
+      <Pagination.Next onClick={() => onPageChange(currentPage + 1)} disabled={currentPage === totalPages} className="btn-page" />
+      <Pagination.Last onClick={() => onPageChange(totalPages)} disabled={currentPage === totalPages} className="btn-page" />
+    </Pagination>
   );
 };
 

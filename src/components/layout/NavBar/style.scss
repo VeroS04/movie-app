@@ -36,9 +36,17 @@
     }
 
     .btn-forms {
-      width: 12%;
+      width: 18%;
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-evenly;
+
+      .nav-login {
+        text-decoration: none;
+        padding: 2.5%;
+        border-radius: 10px;
+        border: solid 1.5px #fa7188;
+        background-color: rgb(243, 224, 217);
+      }
 
       .nav-logout {
         border-radius: 10px;

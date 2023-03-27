@@ -31,8 +31,10 @@ const NavBar = () => {
           </Nav>
 
           <Nav className="btn-forms">
+            <NavLink className="nav-login" to={"/login"}>Login</NavLink>
+            <NavLink className="nav-login" to={"/signup"}>Register</NavLink>
             <Nav.Link className="nav-logout" onClick={logout}>
-              Cerrar sesión
+              Logout
             </Nav.Link>
           </Nav>
         </NavbarBTS.Collapse>
