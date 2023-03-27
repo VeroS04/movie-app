@@ -1,7 +1,7 @@
-import { useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import { AuthContext } from '../../contexts/auth';
 import { tokenGenerator } from "../../helpers/tokenGenerator";
-import { servicesUser } from "../../services/users/users";
+import { servicesUser } from "../../services/users";
 import { LoginForm, User } from "../../types"
 
 const useMe = () => {
@@ -41,7 +41,6 @@ const useMe = () => {
             const { id, name, lastname, email} = await servicesUser.getBy('token', token) as User
             setMe({ id, name, lastname, email })
         }
-
         
     }
 
@@ -49,7 +48,7 @@ const useMe = () => {
 
     }
 
-    return { me, login, signup, forgotPassword, logout}
+    return { me, login, signup, forgotPassword, logout, loginWithToken}
 }
 
 export { useMe }

@@ -1,3 +1,4 @@
 export { BannerCarousel } from './banner-carrousell';
-export { TopList } from './top-home';
+export { GridMovies } from './gridMovies';
+export { CardsMovie } from './movieCards'
 
