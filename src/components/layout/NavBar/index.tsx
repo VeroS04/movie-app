@@ -1,13 +1,16 @@
-import { Navbar as NavbarBTS, Container, Nav } from "react-bootstrap";
+import { Navbar as NavbarBTS, Nav, Container, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import { useMe } from "../../../hooks";
 import "./style.scss";
 
 const NavBar = () => {
+  const { logout } = useMe();
+
   return (
     <NavbarBTS className="container-nav">
       <Container fluid>
         <NavbarBTS.Toggle aria-controls="basic-navbar-nav" />
-        <NavbarBTS.Collapse id="basic-navbar-nav">
+        <NavbarBTS.Collapse id="basic-navbar-nav" className="container-nav-btn">
           <Nav className="btn-movies">
             <NavLink className="nav-link" to="/">
               Home
@@ -22,15 +25,17 @@ const NavBar = () => {
               Buscador
             </NavLink>
           </Nav>
-        </NavbarBTS.Collapse>
-        <NavbarBTS.Collapse id="basic-navbar-nav">
+
+          <Nav className="title-nav">
+            <Navbar className="text-nav">AdaMovies</Navbar>
+          </Nav>
+
           <Nav className="btn-forms">
-            <NavLink className="nav-link" to="/login">
-              Login
-            </NavLink>
-            <NavLink className="nav-link" to="/signup">
-              Registro
-            </NavLink>
+            <NavLink className="nav-login" to={"/login"}>Login</NavLink>
+            <NavLink className="nav-login" to={"/signup"}>Register</NavLink>
+            <Nav.Link className="nav-logout" onClick={logout}>
+              Logout
+            </Nav.Link>
           </Nav>
         </NavbarBTS.Collapse>
       </Container>

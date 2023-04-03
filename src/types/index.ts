@@ -29,6 +29,10 @@ export type Search = {
   title : string
 }
 
+export type Pages = {
+  page : number
+}
+
 export type MovieDetail = {
   title : string
   id: number
