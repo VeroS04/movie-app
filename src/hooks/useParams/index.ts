@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const useParam = () => {
 
-  const [params, setParams] = useState({ title: "" });
+  const [params, setParams] = useState({ title: "", page: '1' });
 
   const resultado = () => {
     setParams(prevState => ({ ...prevState }));
