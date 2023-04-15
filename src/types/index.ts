@@ -27,10 +27,7 @@ export type Movie = {
 
 export type Search = {
   title : string
-}
-
-export type Pages = {
-  page : number
+  page? : string
 }
 
 export type MovieDetail = {

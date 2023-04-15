@@ -4,26 +4,26 @@ import { useState, useEffect } from "react";
 import { movieServices } from "../../services/movies";
 import { GridMovies, Pager } from "../../components/common";
 
-const PopularPage= () => {
-  const [popular, setPopular] = useState([]);
+const PopularPage = () => {
+  const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
-    movieServices.getPopular(currentPage).then(response =>{ 
-      setPopular(response)
+    movieServices.getPopular(currentPage).then(response => {
+      setMovies(response)
       setTotalPages(response.total_pages);
-    });
- }, [currentPage]);
+      });
+    }, [currentPage]);
 
- const handlePageChange = (pageNumber: number) => {
-  setCurrentPage(pageNumber);
-};
+     const handlePageChange = (pageNumber: number) => {
+      setCurrentPage(pageNumber);
+  };
 
   return (
     <Layout>
-      <GridMovies movies={popular} text={"Popular Movies"} type={"slides"} container={"container-slides"} card={"card-slides-img"} />
-      <Pager totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
+      <GridMovies movies={movies} text={"Popular Movies"} type={"slides"} container={"container-slides"} card={"card-slides-img"} />
+      <Pager totalPages={totalPages} currentPage={Number(currentPage)} onPageChange={handlePageChange} />
     </Layout>
   );
 };
