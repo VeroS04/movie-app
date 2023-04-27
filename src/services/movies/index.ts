@@ -1,5 +1,6 @@
 import { endpoints } from "../../constants";
 import { apiMovies } from "../../utils/axios";
+import { video } from "../../types";
  
 const getPopular = async (page?: number) => {
   const response = await apiMovies.get(
@@ -47,4 +48,10 @@ const getDetails = async (id: string) => {
   return response.data;
 };
 
-export const movieServices = { getPopular, getTop, getUpcoming, searchMovie, getDetails }
+const getTrailer = async (id: string) => {
+  const response = await apiMovies.get(`movie/${id}/videos`);
+  const trailer = response.data.results.find((video:video) => video.type === 'Trailer');
+  return trailer;
+}
+
+export const movieServices = { getPopular, getTop, getUpcoming, searchMovie, getDetails, getTrailer }

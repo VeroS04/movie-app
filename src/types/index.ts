@@ -37,4 +37,24 @@ export type MovieDetail = {
   backdrop_path: string | null
   poster_path: string
   release_date: string
+  vote_average: number
+  production_companies : gender[]
+  genres : gender[]
+  production_countries : Partial<gender>[]
 };
+
+type gender = {
+  id: number,
+  name: string
+}
+
+export type video = {
+  id: string 
+  iso_639_1 : string
+  iso_3166_1 : string
+  key: string
+  name : string
+  site: string
+  size : number
+  type : string
+}
