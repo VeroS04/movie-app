@@ -12,7 +12,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter basename="/movieapp">
+    <BrowserRouter>
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
