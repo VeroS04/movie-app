@@ -1,33 +1,21 @@
-.carousel {
+.container-carousel {
+  margin: auto;
   transition-duration: 0.9s;
   filter: grayscale(65%);
-  border-bottom: solid #ac2e01 1px;
-  background-color: #5301014b;
-  box-shadow: 10px 8px 20px -2px rgba(224, 97, 97, 0.399);
 
   &:hover {
-    box-shadow: 10px 8px 20px -2px rgba(238, 206, 206, 0.399);
     transition-duration: 0.9s;
-    transform: scale(1);
+    filter: grayscale(15%);
     border-bottom: none;
+    transform: scale(1.02);
   }
 
   .carousel-item {
+    width: 90%;
     height: 70vh;
-    min-height: 300px;
+    left: 5%;
   }
 
-  .card-img-top {
-    height: 600px;
-
-    &:hover {
-      height: 650px;
-      
-      transition-duration: 0.9s;
-      transform: scale(1);
-      border-bottom: none;
-    }
-  }
   .carousel-caption {
     background-color: #5301014b;
     h3 {

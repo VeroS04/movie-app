@@ -1,7 +1,6 @@
 .container-nav {
   padding-bottom: 3%;
-  margin-bottom: 1%;
-  border-bottom: solid orangered 0.8px;
+  border-bottom: solid rgb(114, 33, 3) 0.8px;
   background-image: url(https://d1csarkz8obe9u.cloudfront.net/posterpreviews/film-movie-maker-youtube-channel-art-banner-design-template-452b518153abfc71ca929b93e3fc267f_screen.jpg?ts=1588568089);
 
   .container-nav-btn {
@@ -12,12 +11,13 @@
     .btn-movies {
       width: 20%;
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
 
       .nav-link {
         background-color: rgb(243, 224, 217);
         border-radius: 10px;
         border: solid 1.5px #fa7188;
+        margin-left: 3%;
       }
     }
 
